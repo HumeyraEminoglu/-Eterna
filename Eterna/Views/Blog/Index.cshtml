@@ -1,0 +1,74 @@
+﻿@using Eterna.Models
+@model IEnumerable<Blog>
+<section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <div class="inner-heading">
+                    <ul class="breadcrumb">
+                        <li><a href="index.html">Home</a> <i class="icon-angle-right"></i></li>
+                        <li class="active">Blog fullwidth</li>
+                    </ul>
+                    <h2>Blog fullwidth</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="content">
+    <div class="container">
+        <div class="row">
+
+            <div class="span12">
+                @foreach (Blog hbb in Model)
+                {
+                    <article>
+                        <div class="row">
+
+                            <div class="span8">
+                                <div class="post-image">
+                                    <div class="post-heading">
+                                        <h3><a href="#">@hbb.Baslik</a></h3>
+                                    </div>
+
+                                    <img src="@hbb.Resim" alt="" />
+                                </div>
+
+                            </div>
+                            <div class="span4">
+                                <div class="meta-post">
+                                    <ul>
+                                        <li><i class="icon-file"></i></li>
+                                        <li>By <a href="#" class="author">@hbb.Yazar</a></li>
+                                        <li>On <a href="#" class="date">@hbb.KayitTarih.ToString("dd MMMM yyyy")</a></li>
+                                        <li>
+                                            Tags:
+                                            @foreach (Etiket etiket in hbb.BlogEtiket.Select(s => s.Etiket))
+                                            {
+                                                <a href="#">@etiket.Ad </a>
+                                            }
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="post-entry">
+                                    <p>
+                                       @hbb.Aciklama
+                                    </p>
+                                    <a href="#" class="readmore">Read more <i class="icon-angle-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                }
+
+                <div id="pagination">
+                    <span class="all">Page 1 of 3</span>
+                    <span class="current">1</span>
+                    <a href="#" class="inactive">2</a>
+                    <a href="#" class="inactive">3</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

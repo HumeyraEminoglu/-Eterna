@@ -1,0 +1,54 @@
+﻿@using Eterna.Models
+@model IEnumerable<SoruKategori>
+<section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <div class="inner-heading">
+                    <ul class="breadcrumb">
+                        <li><a href="index.html">Home</a> <i class="icon-angle-right"></i></li>
+                        <li><a href="#">Pages</a> <i class="icon-angle-right"></i></li>
+                        <li class="active">Faq</li>
+                    </ul>
+                    <h2>Frequently Asked Questions</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="content">
+    <div class="container">
+        <div class="row">
+
+            <div class="span12">
+
+                @foreach (SoruKategori hbsk in Model)
+                {
+                    <h4 class="title">@hbsk.Ad</h4>
+                    foreach (Soru hbs in hbsk.Soru)
+                    {
+                        <div class="accordion" id="accordion_@hbs.ID">
+                            <div class="accordion-group">
+                                <div class="accordion-heading">
+                                    <a class="accordion-toggle active" data-toggle="collapse" data-parent="#accordion_@hbs.ID" href="#@hbs.ID">
+                                        <i class="icon-minus"></i>@hbs.Ad?
+                                    </a>
+                                </div>
+                                <div id="@hbs.ID" class="accordion-body collapse in">
+                                    <div class="accordion-inner">
+                                        @hbs.Cevap
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    <div class="blankline30"></div>
+                    <div class="solidline"></div>
+                    <div class="blankline20"></div>
+                }
+            </div>
+
+        </div>
+    </div>
+</section>

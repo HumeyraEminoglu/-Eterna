@@ -1,0 +1,4 @@
+﻿@using Eterna.Models
+@model Hizmet
+@Model.Ad  hizmetini silme istediğinizden emin misiniz?
+<a href="@Url.Action("SilEvet","Hizmet",new { ID=Model.ID})">Evet</a><a href="@Url.Action("Index","Hizmet")">Hayır</a>

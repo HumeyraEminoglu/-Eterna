@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Eterna.Models.Blog>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<span onclick="functDeneme()">Getir</span>
+<div class="icerik"></div>
+<select class="select1"></select>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Baslik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Resim)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Aciklama)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Yazar)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.KayitTarih)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Baslik)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Resim)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Aciklama)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Yazar)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.KayitTarih)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

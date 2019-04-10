@@ -1,0 +1,40 @@
+﻿@using Eterna.Models
+@model Hizmet
+<form action="/Hizmet/Guncelle" method="post">
+    <div class="yeni">
+        <div class="satir">
+            <input type="hidden" name="ID" value="@Model.ID" />
+            <span>Hizmet Adı:</span><input type="text" name="adi" value="@Model.Ad" />
+            <span>Hizmet Sırası:</span><input type="text" name="sirasi" value="@Model.Sira" />
+            <input type="submit" value="Gönder" />
+        </div>
+    </div>
+</form>
+<style>
+    .yeni {
+        width: 70%;
+        overflow: hidden;
+        padding: 30px;
+    }
+
+        .yeni .satir {
+            width: 100%;
+            clear: both;
+            padding-top: 15px;
+            height: 30px;
+            border-bottom: solid 1px #eee
+        }
+
+        .yeni .span {
+            width: 20%;
+            display: block;
+            float: left;
+            margin-right: 5%;
+        }
+
+        .yeni input[type=text] {
+            width: 75%;
+            display: block;
+            float: left;
+        }
+</style>

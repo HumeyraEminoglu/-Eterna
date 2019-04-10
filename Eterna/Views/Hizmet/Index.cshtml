@@ -1,0 +1,50 @@
+﻿@using Eterna.Models
+@model IEnumerable<Hizmet>
+    <a href="@Url.Action("Yeni","Hizmet")" class="buttonYeni">Yeni Kayıt</a>
+<div class="listele">
+    @foreach (Hizmet hizmet in Model)
+    {
+        <div class="satir">
+            <div>@hizmet.Ad</div>
+            <div>@hizmet.Sira</div>
+            <div>
+                <a href="@Url.Action("Duzenle","Hizmet",new { ID=hizmet.ID })">Düzenle</a>
+                <a href="@Url.Action("Sil","Hizmet",new { ID=hizmet.ID})">Sil</a>
+            </div>
+        </div>
+    }
+</div>
+<style>
+    .buttonYeni{
+        width:150px;
+        height:30px;
+        display:block;
+        margin:30px;
+        padding-top:10px;
+        text-align:center;
+        color:#fff;
+        font-size:15px;
+        background-color:#ff6a00;
+    }
+        .buttonYeni:hover {
+            background-color: #ff0000;
+            color: #fff;
+            text-decoration:none;
+        }
+    .listele {
+        width: 70%;
+        overflow: hidden;
+        padding: 30px;
+    }
+    .listele .satir{
+        width: 100%;
+        clear:both;
+        padding-top:15px;
+        height:30px;
+        border-bottom:solid 1px #eee
+    }
+        .listele .satir > div{
+            width: 33%;
+            float:left;
+        }
+</style>
